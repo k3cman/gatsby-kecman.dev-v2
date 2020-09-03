@@ -1,54 +1,29 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
+import {NavLink} from "./shared/navLink";
 
 const Header = styled.header`
 width:100%;
-border-bottom:1px solid black;
 display:flex;
 flex-direction:row;
 align-items: center;
 justify-content: space-between;
+margin-bottom:1em;
 `
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
+const Logo = styled.div`
+  font-size:28px;
+  font-weight:700;
+`
 
-  if (location.pathname === rootPath) {
-    header = (
-      <h1>
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    )
-  }
+const Nav = styled.nav`
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+`
+
+const Layout = ({ children }) => {
+  
   return (
     <div
       style={{
@@ -57,16 +32,26 @@ const Layout = ({ location, title, children }) => {
       }}
     >
       <Header>
-        <div>{'</ kecman'}</div>
-        <div>Nemanja</div>
+        <Logo>{'<kecman/>'}</Logo>
+        <Nav>
+          <NavLink link="/blog">Blog</NavLink>
+          <NavLink link="/projects">Projects</NavLink>
+          <NavLink link="/about">About</NavLink>
+        </Nav>
       </Header>
-      
-      <main>{children}</main>
-      <footer>
+
+      <main style={{
+        maxWidth: '680px',
+        marginLeft: 'auto',
+        marginRight: 'auto'
+      }}>
+      {children}
+      </main>
+      {/* <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      </footer> */}
     </div>
   )
 }
