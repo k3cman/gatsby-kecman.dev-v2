@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import '../styles/global.css';

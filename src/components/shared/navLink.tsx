@@ -1,9 +1,9 @@
 import React from "react"
-import { PageProps, Link } from "gatsby";
+import { Link } from "gatsby";
 
 
-export const NavLink: React.FC<PageProps<{link: string}>> = ({link, children}) => (
+export const NavLink = (props:{ link:string, children: any}) => (
         <div className="nav-link">
-            <Link to={link}>{children}</Link>
+            <Link to={props.link}>{props.children}</Link>
         </div>
 )

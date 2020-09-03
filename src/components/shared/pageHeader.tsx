@@ -14,8 +14,8 @@ const PageHeaderContainer = styled.h1`
                           3px 3px #FC4C1C;
 `
 
-const PageHeader: React.FC<PageProps<any>> = ({children}) => {
-return <PageHeaderContainer>{children}</PageHeaderContainer>
+const PageHeader = (props: {children: any}) => {
+return <PageHeaderContainer>{props.children}</PageHeaderContainer>
 }
 
 export default PageHeader;
